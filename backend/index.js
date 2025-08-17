@@ -27,7 +27,7 @@ app.use('/products', ProductRouter);
 app.use('/expenses', ensureAuthenticated, ExpenseRouter)
 app.use(cors({
   origin: [
-    "http://localhost:5173",               // dev frontend
+    "http://localhost:3000",               // dev frontend
     "https://expense-tracker-frontend-one-iota.vercel.app/" 
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
