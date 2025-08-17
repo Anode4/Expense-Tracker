@@ -11,9 +11,14 @@ require('dotenv').config();
 require('./Models/db');
 const PORT = process.env.PORT || 8080;
 
+app.get('/', (req, res) => {
+    res.send('Backend API is running ✅');
+});
+
 app.get('/ping', (req, res) => {
     res.send('PONG');
 });
+
 
 app.use(bodyParser.json());
 
