@@ -12,4 +12,4 @@ export const handleError = (msg) => {
     })
 }
 
-export const APIUrl = process.env.REACT_APP_API_URL || 'https://expense-tracker-six-delta-33.vercel.app/api';
+export const APIUrl = process.env.REACT_APP_API_URL || 'https://expense-tracker-six-delta-33.vercel.app';
