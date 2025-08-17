@@ -11,6 +11,15 @@ require('dotenv').config();
 require('./Models/db');
 const PORT = process.env.PORT || 8080;
 
+app.use(cors({
+  origin: [
+    "http://localhost:3000",               // dev frontend
+    "https://expense-tracker-frontend-one-iota.vercel.app/" 
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
 app.get('/', (req, res) => {
     res.send('Backend API is running ✅');
 });
@@ -25,14 +34,7 @@ app.use(bodyParser.json());
 app.use('/auth', AuthRouter);
 app.use('/products', ProductRouter);
 app.use('/expenses', ensureAuthenticated, ExpenseRouter)
-app.use(cors({
-  origin: [
-    "http://localhost:3000",               // dev frontend
-    "https://expense-tracker-frontend-one-iota.vercel.app/" 
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
-}));
+
 
 
 app.listen(PORT, () => {
